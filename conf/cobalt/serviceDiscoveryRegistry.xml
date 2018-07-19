@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Configuration>
+<Configuration>
+  <ServiceDiscoveryRegistry>
+    <ServiceInfos>
+
+        <ServiceInfo id="cobalt-repo" domain="${common:common.defaults.domain}" zone="${common:common.defaults.zone}" type="repository" uri="[http|https]://[hostname]:[port]/repository.rest" repository="${common:repository.name}" />
+        <ServiceInfo id="cobalt-directory" domain="${common:common.defaults.domain}" zone="${common:common.global.zone}" type="directory" uri="[http|https]://[hostname]:[port]/directory" realm="${common:common.defaults.realm}" />
+        <ServiceInfo id="cobalt-cobaltpub" domain="${common:common.defaults.domain}" zone="${common:common.defaults.zone}" type="cobaltpub" uri="[http|https]://[hostname]:[port]/cobaltpub" />
+
+    </ServiceInfos>
+  </ServiceDiscoveryRegistry>
+</Configuration>

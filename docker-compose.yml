@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  cobalt:
+    image: dockerhub.eidosmedia.com/cobalt:2.8.0-SNAPSHOT
+    ports:
+      - "80:8480"
+      - "10020:10020" # JPDA port for remote debugging
+    volumes:
+      - ./conf:/cobalt-dist/conf
+      - ./src:/cobalt-dist/src
+      # Mount the the site service extension jars to be deployed in /cobalt-dist/extra/lib/site folder as in this example
+      - /path/to/site/service/extension.jar:/cobalt-dist/extra/lib/site/extension.jar
+      # Mount the the directory service extension jars to be deployed in /cobalt-dist/extra/lib/directory folder as in this example
+      - /path/to/directory/service/extension.jar:/cobalt-dist/extra/lib/directory/extension.jar
+    environment:
+        - COBALT_SERVICES=site # enable also directory, if you need to develop extensions for it
+        - COBALT_REMOTE_REPOSITORY=enabled
+        - repository.name=repo-local # must be the same repository name of the remote server
+    command: ["cobalt.sh", "run-debug"]

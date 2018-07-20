@@ -14,7 +14,7 @@ services:
       # Mount the the directory service extension jars to be deployed in /cobalt-dist/extra/lib/directory folder as in this example
       - /path/to/directory/service/extension.jar:/cobalt-dist/extra/lib/directory/extension.jar
     environment:
-        - COBALT_SERVICES=site # enable also directory, if you need to develop extensions for it
-        - COBALT_REMOTE_REPOSITORY=enabled
-        - repository.name=repo-local # must be the same repository name of the remote server
+      - COBALT_SERVICES=site # enable also directory, if you need to develop extensions for it
+      - COBALT_REMOTE_REPOSITORY=enabled
+      - repository.name=repo-local # must be the same repository name of the remote server
     command: ["cobalt.sh", "run-debug"]
